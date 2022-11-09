@@ -1,5 +1,4 @@
 ( function () {
-	// 爱心跳动,抖音ID:不吃蟹黄 作品参考bootstrapmb,引入three基于canvas制作
 	const _object_pattern = /^[og]\s*(.+)?/; // mtllib file_reference
 
 	const _material_library_pattern = /^mtllib /; // usemtl material_name
@@ -142,14 +141,14 @@
 						} // Guarantee at least one empty material, this makes the creation later more straight forward.
 
 
-						if ( end && this.materials.length === 0 ) {
+						// if ( end && this.materials.length === 0 ) {
 
-							this.materials.push( {
-								name: '',
-								smooth: this.smooth
-							} );
+						// 	this.materials.push( {
+						// 		name: '',
+						// 		smooth: this.smooth
+						// 	} );
 
-						}
+						// }
 
 						return lastMultiMaterial;
 
@@ -573,25 +572,8 @@
 
 				} else if ( lineFirstChar === 's' ) {
 
-					result = line.split( ' ' ); // smooth shading
-					// @todo Handle files that have varying smooth values for a set of faces inside one geometry,
-					// but does not define a usemtl for each face set.
-					// This should be detected and a dummy material created (later MultiMaterial and geometry groups).
-					// This requires some care to not create extra material on each smooth value for "normal" obj files.
-					// where explicit usemtl defines geometry groups.
-					// Example asset: examples/models/obj/cerberus/Cerberus.obj
+					result = line.split( ' ' ); 
 
-					/*
-        	 * http://paulbourke.net/dataformats/obj/
-        	 * or
-        	 * http://www.cs.utah.edu/~boulos/cs3505/obj_spec.pdf
-        	 *
-        	 * From chapter "Grouping" Syntax explanation "s group_number":
-        	 * "group_number is the smoothing group number. To turn off smoothing groups, use a value of 0 or off.
-        	 * Polygonal elements use group numbers to put elements in different smoothing groups. For free-form
-        	 * surfaces, smoothing groups are either turned on or off; there is no difference between values greater
-        	 * than 0."
-        	 */
 
 					if ( result.length > 1 ) {
 
@@ -701,8 +683,8 @@
 							} else if ( isPoints ) {
 
 								material = new THREE.PointsMaterial( {
-									size: 1,
-									sizeAttenuation: false
+									size: 0,
+									sizeAttenuation: true
 								} );
 
 							} else {

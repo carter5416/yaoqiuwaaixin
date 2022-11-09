@@ -38,15 +38,15 @@
 				width: 0,
 				height: 0
 			};
-			this.rotateSpeed = 1.0;
-			this.zoomSpeed = 1.2;
-			this.panSpeed = 0.3;
+			this.rotateSpeed = 4.0;
+			this.zoomSpeed = 1.5;
+			this.panSpeed = 0.2;
 			this.noRotate = false;
 			this.noZoom = false;
 			this.noPan = false;
 			this.staticMoving = false;
-			this.dynamicDampingFactor = 0.2;
-			this.minDistance = 0;
+			this.dynamicDampingFactor = 0.1;
+			this.minDistance = 10;
 			this.maxDistance = Infinity;
 			this.keys = [ 'KeyA',
 				/*A*/
